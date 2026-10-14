@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trip Spending support</title>
+  <meta name="description" content="Help and contact for Trip Spending, the app for splitting the cost of a trip between up to four people.">
+  <link rel="icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="band">
+    <div class="wrap">
+      <a class="brand" href="./">
+        <img src="icon-180.png" alt="">
+        <span>Trip Spending</span>
+      </a>
+      <p>Records what a trip costs when up to four people share it, splits each expense by percentage or fraction, and works out who pays whom at the end, in Hong Kong dollars.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="contact">
+      <h2>Get help</h2>
+      <p>Email <a href="mailto:sy@sycheng.com?subject=Trip%20Spending">sy@sycheng.com</a>. Say which phone you use and what happened, and include a screenshot if you can.</p>
+    </section>
+
+    <h1>Questions</h1>
+
+    <h2>Where are my trips stored?</h2>
+    <p>Only on your phone. There is no account and no copy anywhere else. If you delete the app, or lose the phone, the trips go with it. To keep a copy, open a trip's Summary and tap Export to Excel.</p>
+
+    <h2>Can my friends see the trip on their phones?</h2>
+    <p>No. One person records the expenses for everyone. Send the others the Excel report from the Summary tab.</p>
+
+    <h2>Where do the exchange rates come from?</h2>
+    <p>From <a href="https://www.exchangerate-api.com">ExchangeRate-API</a>, which updates them once a day. The rate is filled in for you and can be changed, for example to the rate your card or money changer actually gave you. Each expense keeps the rate it was saved with, so later changes in rates do not alter past totals. Without a connection, the app uses the last rates it fetched.</p>
+
+    <h2>How is "who pays whom" worked out?</h2>
+    <p>For each person, the app adds up what they paid and what their share of every expense comes to. The difference is their balance. It then lists the fewest payments that bring every balance to zero.</p>
+
+    <h2>Why won't an expense save?</h2>
+    <p>The split has to add up to exactly 100%, or exactly 1 when using fractions. The line under the split says how much is still to allocate or how much it is over. "Split equally" fills it in for everyone ticked.</p>
+
+    <h2>Can I change the currency everything is totalled in?</h2>
+    <p>Not yet. Totals are always in Hong Kong dollars.</p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a href="privacy.html">Privacy policy</a>
+    </div>
+  </footer>
+</body>
+</html>
