@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["7SG9D5QLZY.com.sycheng.tripSpending"],
+        "components": [{ "/": "/join*", "comment": "Invites to a shared trip" }]
+      }
+    ]
+  }
+}

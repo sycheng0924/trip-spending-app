@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join a trip</title>
+  <meta name="description" content="Join a shared trip in Trip Spending.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .ticket {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      margin-top: 32px;
+      overflow: hidden;
+    }
+    .ticket > div { padding: 24px; }
+    .ticket .stub { border-top: 2px dashed var(--line); }
+    .label { color: var(--muted); margin: 0; }
+    .code {
+      font: 700 44px/1.1 "Bricolage Grotesque", system-ui, sans-serif;
+      letter-spacing: 3px;
+      font-variant-numeric: tabular-nums;
+      margin: 4px 0 12px;
+    }
+    button.copy {
+      font: 700 16px "Instrument Sans", system-ui, sans-serif;
+      color: var(--link);
+      background: none;
+      border: 1.5px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 18px;
+      min-height: 44px;
+      cursor: pointer;
+    }
+    button.copy:focus-visible, .store:focus-visible {
+      outline: 3px solid var(--link);
+      outline-offset: 3px;
+    }
+    ol { padding-left: 1.3em; margin: 0; }
+    ol li { margin: 0 0 16px; }
+    ol li:last-child { margin-bottom: 0; }
+    .stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+    .store {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1.5px solid var(--harbour);
+      color: var(--link);
+    }
+    .store.mine { background: var(--harbour); color: #fff; }
+    .missing { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="band">
+    <div class="wrap">
+      <a class="brand" href="../">
+        <img src="../icon-180.png" alt="">
+        <span>Trip Spending</span>
+      </a>
+      <p>You have been invited to a shared trip. Everyone in it adds their own expenses, and the app works out who pays whom.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="ticket">
+      <div>
+        <p class="label">Invite code</p>
+        <p class="code" id="code">&nbsp;</p>
+        <button class="copy" id="copy" type="button" hidden>Copy code</button>
+        <p class="missing" id="missing" hidden>This link has no invite code. Ask for the invite again.</p>
+      </div>
+      <div class="stub">
+        <ol>
+          <li>
+            Install Trip Spending, free:
+            <div class="stores">
+              <a class="store" id="ios" href="https://apps.apple.com/app/id6824998553">App Store</a>
+              <a class="store" id="android" href="https://play.google.com/store/apps/details?id=com.sycheng.trip_spending">Google Play</a>
+            </div>
+          </li>
+          <li>Scan the QR code or tap the invite link again. The app opens and joins the trip.</li>
+          <li>Or open the app, tap Join trip and type the code above.</li>
+        </ol>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a href="../">Help</a> · <a href="../privacy.html">Privacy policy</a>
+    </div>
+  </footer>
+
+  <script>
+    // Codes use these characters only, so nothing else from the link is shown.
+    var raw = (new URLSearchParams(location.search).get('code') || '')
+      .toUpperCase().replace(/[\s-]/g, '');
+    var code = /^[A-HJKMNP-Z2-9]{6}$/.test(raw) ? raw : '';
+    var shown = document.getElementById('code');
+    if (code) {
+      shown.textContent = code.slice(0, 3) + '-' + code.slice(3);
+      var copy = document.getElementById('copy');
+      copy.hidden = false;
+      copy.addEventListener('click', function () {
+        navigator.clipboard.writeText(code).then(function () {
+          copy.textContent = 'Copied';
+        });
+      });
+    } else {
+      shown.textContent = '—';
+      document.getElementById('missing').hidden = false;
+    }
+    // Put this phone's store first.
+    var ua = navigator.userAgent;
+    var mine = /iPhone|iPad|iPod/.test(ua) ? 'ios' : /Android/.test(ua) ? 'android' : null;
+    if (mine) document.getElementById(mine).classList.add('mine');
+    if (mine === 'android') {
+      var stores = document.querySelector('.stores');
+      stores.insertBefore(document.getElementById('android'), stores.firstChild);
+    }
+  </script>
+</body>
+</html>

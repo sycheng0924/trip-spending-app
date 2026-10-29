@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.sycheng.trip_spending",
+      "sha256_cert_fingerprints": [
+        "44:0B:6B:66:F5:75:8C:75:10:29:36:E3:BF:E5:CF:40:05:1E:BC:DA:9F:53:F2:1C:F0:58:82:8C:B4:10:61:41"
+      ]
+    }
+  }
+]
