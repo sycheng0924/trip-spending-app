@@ -24,7 +24,7 @@
 
   <main class="wrap">
     <h1>Privacy policy</h1>
-    <p class="meta">Effective 1 November 2026. Applies to the Trip Spending app for iPhone and Android.</p>
+    <p class="meta">Effective 10 November 2026. Applies to the Trip Spending app for iPhone and Android.</p>
 
     <p>In short: your trips stay on your phone unless you share one. A shared trip is kept online only so that the phones in it can see it, and is deleted when it is no longer used. The app has no accounts to sign up for, no analytics, no advertising and no tracking.</p>
 
@@ -34,13 +34,13 @@
     <p>The trips, traveller names, expenses and payments you enter, and the most recently downloaded exchange rates. They are saved in the app's own storage. A trip that you do not share is never sent to us or to anyone else.</p>
 
     <h2>Shared trips</h2>
-    <p>From version 1.4.0 you can share a trip, so that friends on other phones can add expenses to it. When you tap Share, or join a trip with an invite, the app:</p>
+    <p>From version 1.4.1 you can share a trip, so that friends on other phones can add expenses to it. When you tap Share, or join a trip with an invite, the app:</p>
     <ul>
       <li>signs in to Google Firebase anonymously. This creates a random ID for the app on your phone. It is not linked to your name, email address, phone number or any other account;</li>
-      <li>uploads that trip to Google Cloud Firestore, stored in London (europe-west2): its name and currency, the traveller names, the expenses (description, amount, currency, date, who paid, how it is shared, who added it), settle-up payments, and which phone IDs have joined, which traveller each is and when they joined;</li>
-      <li>creates an invite code that lets others join the trip.</li>
+      <li>uploads that trip to Google Cloud Firestore, stored in London (europe-west2): its name and currency, the traveller names, the expenses (description, amount, currency, date, who paid, how it is shared, who added it), settle-up payments, and which phone IDs have joined, which traveller each is, when they joined and when each last opened the trip;</li>
+      <li>creates an invite code that lets others join the trip, and a recovery code that lets the person who shared it manage the trip again from another phone. The recovery code is kept on their phone and, online, only with the ID of the trip, of their phone and of their traveller.</li>
     </ul>
-    <p>Anyone with the invite code or link can join the trip and see and change it, so send it only to the people you travel with. The person who shared the trip can remove a phone or make a new code. Other trips on your phone are not uploaded.</p>
+    <p>Anyone with the invite code or link can join the trip, see it and add or change expenses, so send it only to the people you travel with. The person who shared the trip sets its name, currency and travellers, and can remove a phone or make a new code. Keep the recovery code to yourself: anyone who has it can take over the trip. Other trips on your phone are not uploaded.</p>
     <p>To protect the service from misuse, the app uses Firebase App Check, which asks Apple (App Attest) or Google (Play Integrity) to confirm that requests come from the real app. As with any internet service, Google sees your device's IP address when the app connects. Google processes the data for us as our service provider, under the <a href="https://firebase.google.com/terms/data-processing-terms">Firebase data processing terms</a>; see also <a href="https://firebase.google.com/support/privacy">Privacy and security in Firebase</a>.</p>
 
     <h2>How long shared trips are kept</h2>
